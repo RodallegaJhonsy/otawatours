@@ -369,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let triviaScore = 0;
     let triviaIncorrectGuesses = 0; // NUEVO: Contador de errores incorrectos
     const TRIVIA_WIN_GOAL = 5; // Goal for correct answers to win
-    const TRIVIA_MAX_INCORRECT_GUESSES = 3; // NUEVO: Máximo de errores permitidos
+    const TRIVIA_MAX_INCORRECT_GUESSES = 1; // NUEVO: Máximo de errores permitidos
 
     function initializeTriviaGame() {
         currentTriviaQuestionIndex = 0;
