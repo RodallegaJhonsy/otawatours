@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otawa Tours</title>
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="nav-logo">
+                    <img src="assets/images/logo.png" alt="Otawa Tours Logo" style="height: 50px;">
+                    <span>Otawa Tours</span>
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#destinations" class="nav-link">Destinations</a></li>
+                    <li class="nav-item"><a href="#packages" class="nav-link">Packages</a></li>
+                    <li class="nav-item"><a href="#booking" class="nav-link">Booking</a></li>
+                    <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+                    <li class="nav-item"><a href="games.html" class="nav-link">Games</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1 class="animate-on-scroll">Explore the Majestic Beauty of Canada</h1>
+                <p class="animate-on-scroll">From towering mountains to vibrant cities, your Canadian adventure starts here.</p>
+                <a href="#packages" class="btn btn-primary animate-on-scroll">Discover Tours</a>
+            </div>
+        </section>
+
+        <section id="destinations" class="destinations-section section-padding">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Popular Destinations</h2>
+                <div class="destination-grid">
+                    <div class="destination-card animate-on-scroll">
+                        <img src="assets/images/destination1.jpg" alt="Banff National Park">
+                        <div class="destination-info">
+                            <h3>Banff National Park</h3>
+                            <p>Experience the stunning turquoise lakes and majestic peaks of the Rockies.</p>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="destination-card animate-on-scroll">
+                        <img src="assets/images/destination2.jpg" alt="Toronto">
+                        <div class="destination-info">
+                            <h3>Toronto</h3>
+                            <p>Discover the vibrant culture and iconic skyline of Canada's largest city.</p>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="destination-card animate-on-scroll">
+                        <img src="assets/images/destination3.jpg" alt="Quebec City">
+                        <div class="destination-info">
+                            <h3>Quebec City</h3>
+                            <p>Step back in time in the charming, historic streets of Old Quebec.</p>
+                            <a href="#" class="btn btn-secondary">Learn More</a>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </section>
+
+        <section id="packages" class="packages-section section-padding bg-light">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Our Travel Packages</h2>
+                <div class="package-grid">
+                    <div class="package-card animate-on-scroll">
+                        <img src="assets/images/package1.jpg" alt="Rocky Mountain Explorer">
+                        <div class="package-details">
+                            <h3>Rocky Mountain Explorer</h3>
+                            <p class="package-duration">7 Days / 6 Nights</p>
+                            <ul class="package-features">
+                                <li><i class="fas fa-check-circle"></i> Guided tours in Banff & Jasper</li>
+                                <li><i class="fas fa-check-circle"></i> Accommodation included</li>
+                                <li><i class="fas fa-check-circle"></i> Scenic drives</li>
+                            </ul>
+                            <p class="package-price">$1,899 CAD</p>
+                            <a href="#booking" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                    <div class="package-card animate-on-scroll">
+                        <img src="assets/images/package2.jpg" alt="Eastern Canada Charm">
+                        <div class="package-details">
+                            <h3>Eastern Canada Charm</h3>
+                            <p class="package-duration">10 Days / 9 Nights</p>
+                            <ul class="package-features">
+                                <li><i class="fas fa-check-circle"></i> Explore Toronto, Montreal, Quebec</li>
+                                <li><i class="fas fa-check-circle"></i> Niagara Falls visit</li>
+                                <li><i class="fas fa-check-circle"></i> Cultural experiences</li>
+                            </ul>
+                            <p class="package-price">$2,499 CAD</p>
+                            <a href="#booking" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </section>
+
+        <section id="booking" class="booking-section section-padding">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Book Your Adventure</h2>
+                <form id="booking-form" class="booking-form animate-on-scroll">
+                    <div class="form-group">
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="package-choice">Choose Package:</label>
+                        <select id="package-choice" name="package-choice">
+                            <option value="rocky-mountain">Rocky Mountain Explorer</option>
+                            <option value="eastern-charm">Eastern Canada Charm</option>
+                            <option value="custom">Custom Inquiry</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="departure-date">Preferred Departure Date:</label>
+                        <input type="date" id="departure-date" name="departure-date">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Additional Message:</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Booking Request</button>
+                </form>
+                <div id="booking-confirmation" class="confirmation-message" style="display: none;">
+                    Thank you for your booking request! We will contact you shortly.
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="blog-section section-padding bg-light">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Explore Our Blog</h2>
+                <div class="blog-grid">
+                    <article class="blog-post-preview animate-on-scroll">
+                        <img src="assets/images/blog1.jpg" alt="Blog Post 1">
+                        <div class="blog-post-content">
+                            <h3>Top 10 Must-Visit Spots in the Canadian Rockies</h3>
+                            <p class="post-meta">By Jhonsy Rodallega | May 15, 2025</p>
+                            <p>Discover breathtaking landscapes and hidden gems in one of Canada's most iconic regions...</p>
+                            <a href="blog1.html" class="btn btn-secondary">Read More</a>
+                        </div>
+                    </article>
+                    </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section section-padding">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Get In Touch</h2>
+                <div class="contact-flex">
+                    <div class="contact-form-container animate-on-scroll">
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="contact-name">Name:</label>
+                                <input type="text" id="contact-name" name="contact-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email:</label>
+                                <input type="email" id="contact-email" name="contact-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-subject">Subject:</label>
+                                <input type="text" id="contact-subject" name="contact-subject">
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-message">Message:</label>
+                                <textarea id="contact-message" name="contact-message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                         <div id="contact-confirmation" class="confirmation-message" style="display: none;">
+                            Thank you for your message! We'll be in touch soon.
+                        </div>
+                    </div>
+                    <div class="contact-info animate-on-scroll">
+                        <h3>Our Office</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Adventure Road, Calgary, AB, Canada</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> info@otawatours.com</p>
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+<section id="our-team" class="section-padding bg-light">
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Meet Our Team</h2>
+                <p class="animate-on-scroll" style="text-align: center; margin-bottom: 40px; color: #555;">The passionate individuals behind Canada Wonders.</p>
+
+                <div class="team-grid">
+                    <div class="team-member animate-on-scroll">
+                        <img src="assets/images/man.png" alt="Photo of Emily Chen" class="team-photo">
+                        <h3>Jhonsy Rodallega</h3>
+                        <p class="team-role">Customer Support</p>
+                    </div>
+
+                    <div class="team-member animate-on-scroll">
+                        <img src="assets/images/woman.png" alt="Photo of Mark Johnson" class="team-photo">
+                        <h3>María Del Mar</h3>
+                        <p class="team-role">Customer Support</p>
+                    </div>
+
+                    <div class="team-member animate-on-scroll">
+                        <img src="assets/images/woman.png" alt="Photo of Sarah Lee" class="team-photo">
+                        <h3>Luisa Coral</h3>
+                        <p class="team-role">Customer Support</p>
+                    </div>
+
+                    <div class="team-member animate-on-scroll">
+                        <img src="assets/images/woman.png" alt="Photo of David Miller" class="team-photo">
+                        <h3>María Fernanda</h3>
+                        <p class="team-role">Customer Support</p>
+                    </div>
+                    <div class="team-member animate-on-scroll">
+                        <img src="assets/images/man.png" alt="Photo of David Miller" class="team-photo">
+                        <h3>Dair Quiñones</h3>
+                        <p class="team-role">Customer Support</p>
+                    </div>
+                    <div class="team-member animate-on-scroll">
+                        <img src="assets/images/man.png" alt="Photo of David Miller" class="team-photo">
+                        <h3>Alexander Melendez</h3>
+                        <p class="team-role">Customer Support</p>
+                    </div>
+                    <div class="team-member animate-on-scroll">
+                        <img src="assets/images/woman.png" alt="Photo of David Miller" class="team-photo">
+                        <h3>Montaño</h3>
+                        <p class="team-role">Customer Support</p>
+                    </div>
+                    </div> </div> </section>
+        </main> <footer class="footer bg-dark">
+        <div class="container">
+            <p>&copy; 2025 Canada Wonders. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

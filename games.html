@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canada Games - Canada Wonders</title>
+    <link rel="stylesheet" href="css/style.css"> <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="nav-logo">
+                    <img src="assets/images/logo.png" alt="Canada Wonders Logo" style="height: 50px;">
+                    <span>Canada Wonders</span>
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="index.html#destinations" class="nav-link">Destinations</a></li>
+                    <li class="nav-item"><a href="index.html#packages" class="nav-link">Packages</a></li>
+                    <li class="nav-item"><a href="games.html" class="nav-link active">Games</a></li> </ul>
+                <div class="hamburger"> <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="games-page-main section-padding">
+        <div class="container">
+            <h1 class="section-title animate-on-scroll">Canada-Themed Games</h1>
+            <p class="animate-on-scroll" style="text-align: center; margin-bottom: 40px;">Test your knowledge and have fun with our interactive games!</p>
+
+            <div class="game-tabs animate-on-scroll">
+                <div class="game-tabs animate-on-scroll">
+                <button class="game-tab-button active" onclick="showGame('memory')">Memory Game</button>
+                <button class="game-tab-button" onclick="showGame('hangman')">Hangman</button>
+                <button class="game-tab-button" onclick="showGame('trivia')">Trivia</button> </div>
+                </div>
+
+            <section id="memory-game-section" class="game-content active-game">
+                <h2 class="animate-on-scroll">Canadian Memory Match</h2>
+                <div class="memory-game-controls animate-on-scroll">
+                    <button id="start-memory-game" class="btn btn-primary">Start Game</button>
+                    <p>Moves: <span id="memory-moves">0</span> | Time: <span id="memory-time">0s</span></p>
+                </div>
+                <div id="memory-board" class="memory-board animate-on-scroll">
+                    </div>
+                 <div id="memory-win-message" class="confirmation-message" style="display:none;">
+                    Congratulations! You matched all pairs!
+                </div>
+            </section>
+
+            <section id="hangman-game-section" class="game-content">
+                <h2 class="animate-on-scroll">Canadian Hangman</h2>
+                <div class="hangman-game-controls animate-on-scroll">
+                     <button id="start-hangman-game" class="btn btn-primary">New Word</button>
+                     <p>Incorrect Guesses: <span id="hangman-incorrect-guesses">0</span> / <span id="hangman-max-guesses">6</span></p>
+                </div>
+                <div id="hangman-word-display" class="hangman-word-display animate-on-scroll">
+                    </div>
+                <div id="hangman-letters" class="hangman-letters animate-on-scroll">
+                    </div>
+                <div id="hangman-figure-container" class="animate-on-scroll">
+                    <pre id="hangman-figure">
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========''</pre>
+                </div>
+                <div id="hangman-message" class="confirmation-message" style="display:none;"></div>
+            </section>
+
+            </section> <section id="trivia-game-section" class="game-content">
+                <h2 class="animate-on-scroll">Canadian Trivia Challenge</h2>
+                <div class="trivia-game-controls animate-on-scroll">
+                    <button id="start-trivia-game" class="btn btn-primary">Start New Game</button>
+                    <p>Score: <span id="trivia-score">0</span> / <span id="trivia-win-goal">5</span></p>
+                </div>
+                <div id="trivia-question-container" class="trivia-question-container animate-on-scroll" style="display:none;">
+                    <p id="trivia-question-text" class="question-text"></p>
+                    <div id="trivia-options-container" class="options-container">
+                        </div>
+                    <button id="next-trivia-question" class="btn btn-secondary" style="display:none;">Next Question</button>
+                </div>
+                <div id="trivia-feedback-message" class="confirmation-message" style="display:none;"></div>
+                <div id="trivia-results-message" class="confirmation-message" style="display:none;"></div>
+            </section>
+
+            </div> </main>
+
+            </div>
+    </main>
+
+    <footer class="footer bg-dark">
+        <div class="container">
+            <p>&copy; 2025 Canada Wonders. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script> <script src="js/games.js"></script>
+</body>
+</html>
