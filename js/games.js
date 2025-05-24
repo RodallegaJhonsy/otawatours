@@ -307,6 +307,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const triviaWinGoalDisplay = document.getElementById('trivia-win-goal');
     const triviaFeedbackMessage = document.getElementById('trivia-feedback-message');
     const triviaResultsMessage = document.getElementById('trivia-results-message');
+    // NUEVO: Elemento para mostrar errores incorrectos
+    const triviaIncorrectGuessesDisplay = document.getElementById('trivia-incorrect-guesses');
+
 
     // Define your trivia questions here in English
     const triviaQuestions = [
@@ -352,7 +355,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             question: "What famous winter festival is held annually in Quebec City?",
-            options: ["Winterlude", "Montreal International Jazz Festival", "Quebec Winter Carnival", "Celebration of Light"],
+            options: ["Winterlude", "Montreal International Jazz Festival", "Quebec Winter Carnival", "Celebralight"],
             answer: "Quebec Winter Carnival"
         },
         {
@@ -364,27 +367,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentTriviaQuestionIndex = 0;
     let triviaScore = 0;
+    let triviaIncorrectGuesses = 0; // NUEVO: Contador de errores incorrectos
     const TRIVIA_WIN_GOAL = 5; // Goal for correct answers to win
+    const TRIVIA_MAX_INCORRECT_GUESSES = 3; // NUEVO: Máximo de errores permitidos
 
     function initializeTriviaGame() {
         currentTriviaQuestionIndex = 0;
         triviaScore = 0;
+        triviaIncorrectGuesses = 0; // Reiniciar contador de errores
         triviaQuestionContainer.style.display = 'none';
         triviaFeedbackMessage.style.display = 'none';
         triviaResultsMessage.style.display = 'none';
         nextTriviaQuestionBtn.style.display = 'none';
         updateTriviaStats();
         // Shuffle the questions at the start of each game
-        triviaQuestions.sort(() => Math.random() - 0.5); 
+        triviaQuestions.sort(() => Math.random() - 0.5);
         startTriviaQuestion();
     }
 
     function startTriviaQuestion() {
+        // Primero, verificar si el jugador ya ganó
         if (triviaScore >= TRIVIA_WIN_GOAL) {
             displayTriviaResults(true); // Player won
             return;
         }
-        // Only check for remaining questions if the win goal hasn't been met
+        // Luego, verificar si el jugador ha agotado sus errores
+        if (triviaIncorrectGuesses >= TRIVIA_MAX_INCORRECT_GUESSES) {
+            displayTriviaResults(false); // Player lost due to too many incorrect guesses
+            return;
+        }
+        // Finalmente, verificar si no quedan más preguntas
         if (currentTriviaQuestionIndex >= triviaQuestions.length) {
             displayTriviaResults(false); // Ran out of questions, didn't win
             return;
@@ -393,7 +405,7 @@ document.addEventListener('DOMContentLoaded', () => {
         triviaQuestionContainer.style.display = 'block';
         triviaFeedbackMessage.style.display = 'none';
         nextTriviaQuestionBtn.style.display = 'none';
-        
+
         const questionData = triviaQuestions[currentTriviaQuestionIndex];
         triviaQuestionText.textContent = questionData.question;
         triviaOptionsContainer.innerHTML = ''; // Clear previous options
@@ -428,6 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
             triviaFeedbackMessage.textContent = "Correct!";
             triviaFeedbackMessage.style.color = "green";
         } else {
+            triviaIncorrectGuesses++; // NUEVO: Incrementar errores
             triviaFeedbackMessage.textContent = `Incorrect. The correct answer was: ${correctAnswer}`;
             triviaFeedbackMessage.style.color = "red";
         }
@@ -435,8 +448,8 @@ document.addEventListener('DOMContentLoaded', () => {
         nextTriviaQuestionBtn.style.display = 'block';
         updateTriviaStats();
 
-        // If win goal is met or no more questions, change button text
-        if (triviaScore >= TRIVIA_WIN_GOAL || currentTriviaQuestionIndex + 1 >= triviaQuestions.length) {
+        // Check if game ends after this guess (win or lose)
+        if (triviaScore >= TRIVIA_WIN_GOAL || triviaIncorrectGuesses >= TRIVIA_MAX_INCORRECT_GUESSES || currentTriviaQuestionIndex + 1 >= triviaQuestions.length) {
              nextTriviaQuestionBtn.textContent = "Show Results";
         } else {
             nextTriviaQuestionBtn.textContent = "Next Question";
@@ -446,6 +459,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateTriviaStats() {
         triviaScoreDisplay.textContent = triviaScore;
         triviaWinGoalDisplay.textContent = TRIVIA_WIN_GOAL; // Update win goal display
+        // NUEVO: Actualizar display de errores
+        if (triviaIncorrectGuessesDisplay) { // Asegurarse de que el elemento exista
+            triviaIncorrectGuessesDisplay.textContent = triviaIncorrectGuesses;
+        }
     }
 
     function displayTriviaResults(hasWon) {
@@ -458,7 +475,12 @@ document.addEventListener('DOMContentLoaded', () => {
             triviaResultsMessage.textContent = `Congratulations! You won the Canadian Trivia Challenge with ${triviaScore} correct answers!`;
             triviaResultsMessage.style.color = "green";
         } else {
-            triviaResultsMessage.textContent = `Game Over! You answered ${triviaScore} out of ${TRIVIA_WIN_GOAL} questions correctly to win. Try again!`;
+            // Mensaje de derrota más específico
+            if (triviaIncorrectGuesses >= TRIVIA_MAX_INCORRECT_GUESSES) {
+                triviaResultsMessage.textContent = `Game Over! You made too many incorrect guesses (${triviaIncorrectGuesses} out of ${TRIVIA_MAX_INCORRECT_GUESSES}). You got ${triviaScore} correct answers. Try again!`;
+            } else {
+                triviaResultsMessage.textContent = `Game Over! You answered ${triviaScore} out of ${TRIVIA_WIN_GOAL} questions correctly to win. Try again!`;
+            }
             triviaResultsMessage.style.color = "red";
         }
     }
@@ -470,7 +492,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nextTriviaQuestionBtn) {
         nextTriviaQuestionBtn.addEventListener('click', () => {
             currentTriviaQuestionIndex++;
-            if (triviaScore >= TRIVIA_WIN_GOAL || currentTriviaQuestionIndex >= triviaQuestions.length) {
+            // Verificar las condiciones de finalización antes de iniciar la siguiente pregunta
+            if (triviaScore >= TRIVIA_WIN_GOAL || triviaIncorrectGuesses >= TRIVIA_MAX_INCORRECT_GUESSES || currentTriviaQuestionIndex >= triviaQuestions.length) {
                 displayTriviaResults(triviaScore >= TRIVIA_WIN_GOAL);
             } else {
                 startTriviaQuestion();
