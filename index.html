@@ -23,7 +23,7 @@
                     <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="#destinations" class="nav-link">Destinations</a></li>
                     <li class="nav-item"><a href="#packages" class="nav-link">Packages</a></li>
-                    <li class="nav-item"><a href="#booking" class="nav-link">Booking</a></li>
+                    <li class="nav-item"><a href="booking.html" class="nav-link">Booking</a></li>
                     <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
                     <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                     <!--<li class="nav-item"><a href="games.html" class="nav-link">Games</a></li> -->
@@ -155,46 +155,6 @@
             </div> 
         </section>
 
-        <section id="booking" class="booking-section section-padding">
-            <div class="container">
-                <h2 class="section-title animate-on-scroll">Book Your Adventure</h2>
-                <form id="booking-form" class="booking-form animate-on-scroll">
-                    <div class="form-group">
-                        <label for="name">Full Name:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number:</label>
-                        <input type="tel" id="phone" name="phone">
-                    </div>
-                    <div class="form-group">
-                        <label for="package-choice">Choose Package:</label>
-                        <select id="package-choice" name="package-choice">
-                            <option value="rocky-mountain">Rocky Mountain Explorer</option>
-                            <option value="eastern-charm">Eastern Canada Charm</option>
-                            <option value="custom">Custom Inquiry</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="departure-date">Preferred Departure Date:</label>
-                        <input type="date" id="departure-date" name="departure-date">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Additional Message:</label>
-                        <textarea id="message" name="message" rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Booking Request</button>
-                </form>
-                <div id="booking-confirmation" class="confirmation-message" style="display: none;">
-                    Thank you for your booking request! We will contact you shortly.
-                </div>
-            </div>
-        </section>
-
         <section id="blog" class="blog-section section-padding bg-light">
             <div class="container">
                 <h2 class="section-title animate-on-scroll">Explore Our Blog</h2>
@@ -308,43 +268,5 @@
     </footer>
 
     <script src="js/script.js"></script>
-
-    <script>
-document.getElementById("booking-form").addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    const form = e.target;
-
-    const data = {
-        name: form.name.value,
-        email: form.email.value,
-        phone: form.phone.value,
-        package: form["package-choice"].value,
-        date: form["departure-date"].value,
-        message: form.message.value
-    };
-
-    try {
-        const response = await fetch("https://script.google.com/macros/s/AKfycbxRA9jrI7WTbGEEY4xPIxjF4YKoaUEAomYoDinazbI1BwxCIwqkzwjXxW2xTF9SsQUP_w/exec", {  // <-- reemplaza aquí con tu URL
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-
-        if (response.ok) {
-            document.getElementById("booking-confirmation").style.display = "block";
-            form.reset();
-        } else {
-            alert("Error submitting form. Please try again.");
-        }
-    } catch (error) {
-        alert("Connection error. Please try again later.");
-        console.error(error);
-    }
-});
-</script>
-
 </body>
 </html>
