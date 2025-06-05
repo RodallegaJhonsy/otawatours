@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const hangmanMessage = document.getElementById('hangman-message');
 
 
-    const hangmanWords = ["CANADA", "TORONTO", "MAPLE", "MOOSE", "HOCKEY", "QUEBEC", "BANFF", "OTTAWA", "IGLOO", "BEAVER"];
+    const hangmanWords = ["CANADA", "TORONTO", "MAPLE", "QUEBEC", "BANFF", "OTTAWA", "BEAVER"];
     const maxIncorrectGuesses = 6;
     let currentHangmanWord = '';
     let guessedLetters = [];
@@ -319,6 +319,21 @@ document.addEventListener('DOMContentLoaded', () => {
             answer: "Ottawa"
         },
         {
+        question: "What currency is used in Canada?",
+        options: ["Canadian Dollar", "US Dollar", "Euro", "Pound"],
+        answer: "Canadian Dollar"
+        },
+        {
+        question: "Which color is NOT on the Canadian flag?",
+        options: ["Red", "White", "Blue", "None of the above"],
+        answer: "Blue"
+    },
+    {
+        question: "Which of these is a famous Canadian food?",
+        options: ["Tacos", "Pizza", "Poutine", "Sushi"],
+        answer: "Poutine"
+    },
+        {
             question: "What is the national animal of Canada?",
             options: ["Polar Bear", "Moose", "Beaver", "Canadian Goose"],
             answer: "Beaver"
@@ -344,25 +359,10 @@ document.addEventListener('DOMContentLoaded', () => {
             answer: "Ice Hockey"
         },
         {
-            question: "What is the largest city in Canada by population?",
-            options: ["Vancouver", "Montreal", "Toronto", "Calgary"],
-            answer: "Toronto"
-        },
-        {
             question: "Which Canadian province is the only one with French as its sole official language?",
             options: ["Ontario", "British Columbia", "Quebec", "Alberta"],
             answer: "Quebec"
         },
-        {
-            question: "What famous winter festival is held annually in Quebec City?",
-            options: ["Winterlude", "Montreal International Jazz Festival", "Quebec Winter Carnival", "Celebralight"],
-            answer: "Quebec Winter Carnival"
-        },
-        {
-            question: "Which mountain range stretches along the border between Alberta and British Columbia?",
-            options: ["Appalachian Mountains", "Coast Mountains", "Rocky Mountains", "Laurentian Mountains"],
-            answer: "Rocky Mountains"
-        }
     ];
 
     let currentTriviaQuestionIndex = 0;
